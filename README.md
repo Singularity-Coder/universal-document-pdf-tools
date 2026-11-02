@@ -4,8 +4,6 @@ Free, **fully offline** all-in-one document tool written in Rust (egui). No acco
 create PDFs from almost anything, convert, organize pages, OCR, sign, annotate, redact, fill forms and clean files.
 Windows, Linux and macOS.
 
-This is the Rust rebuild of the approved "Universal Document and PDF Tools" Next.js reference app.
-
 ## What changed from the web version
 
 | Request | Result |
