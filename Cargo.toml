@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["crates/core", "crates/app"]
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["Universal Document PDF Tools"]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = true
+
+# OCR (rten) is painfully slow in debug builds, so optimise dependencies even in dev.
+[profile.dev.package."*"]
+opt-level = 3

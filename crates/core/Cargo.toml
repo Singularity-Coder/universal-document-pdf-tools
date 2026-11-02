@@ -1,0 +1,27 @@
+[package]
+name = "udpt-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[features]
+default = ["ocr"]
+# Offline OCR (ocrs + rten). Needs the two .rten model files in runtime/models (see scripts/fetch-assets).
+ocr = ["dep:ocrs", "dep:rten"]
+
+[dependencies]
+anyhow = "1"
+lopdf = "0.34"
+pdfium-render = "0.8"
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "gif", "webp", "bmp", "tiff"] }
+flate2 = "1"
+# calamine 0.26 is written against the zip 2.2 API. zip 2.3+ gave `ZipFile` a second type parameter, which is
+# exactly the E0107 error from calamine. Keep this pinned until calamine is upgraded.
+zip = { version = "=2.2.3", default-features = false, features = ["deflate"] }
+quick-xml = "0.36"
+calamine = "0.26"
+rust_xlsxwriter = "0.79"
+scraper = "0.20"
+base64 = "0.22"
+ocrs = { version = "0.10", optional = true }
+rten = { version = "0.21", optional = true }
