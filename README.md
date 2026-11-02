@@ -4,19 +4,7 @@ Free, **fully offline** all-in-one document tool written in Rust (egui). No acco
 create PDFs from almost anything, convert, organize pages, OCR, sign, annotate, redact, fill forms and clean files.
 Windows, Linux and macOS.
 
-## What changed from the web version
-
-| Request | Result |
-|---|---|
-| Remove log in section and profile | Login page, accounts, guest mode, profile picture, plan badge, sign-out and the Usage page are gone. Nothing identifies a user. |
-| Rebuild everything in Rust | Cargo workspace: `crates/core` (all document logic, no UI) + `crates/app` (egui desktop UI). No JavaScript, no Node, no server. |
-| Make it wider | Opens at 1560 x 940 (minimum 1200 x 720). Every tool uses a wide two-column layout: files + options on the left, results/preview on the right. |
-| Icons | Vector icon set for every module, button and status, a painted app logo, a window/taskbar icon (`assets/icon.png`) and an embedded Windows `.exe` icon (`assets/icon.ico`). |
-| Loading screen + animation | Animated splash: pulsing logo, orbiting arcs, progress bar with sheen, status text, fade-out. It runs a real check of the offline engines while it plays. In-app work shows a spinner + progress bar. "Reduce motion" is in Settings. |
-| Consistent design | One theme engine (`theme.rs`) and one widget kit (`kit.rs`): the same buttons, cards, chips, spacing, radii and colours on every screen. Six presets + custom theme + accent override are kept. |
-| Offline | No network code anywhere. Heavy engines (PDFium, OCR models) are local files in `runtime/`. |
-
-## Modules (same seven as before)
+## Modules
 
 Create PDF - Convert - Organize pages (visual organizer, merge, split, extract/delete, rotate, reverse, blank pages, crop) -
 Finish & optimize (watermark, page numbers, header/footer, stamp, compress, grey/B&W/invert) - OCR - Sign & annotate
